@@ -24,3 +24,7 @@ yarn-error.log*
 venv
 
 *node_modules*
+*/node_modules/.cache/*
+
+# eslint cache
+.eslintcache
