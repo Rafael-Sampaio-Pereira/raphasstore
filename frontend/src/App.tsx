@@ -29,10 +29,10 @@ export type CartItemType = {
 
 const getProducts = async (): Promise<CartItemType[]> =>
    api
-          .get('/products')
-          .then(response => {
-              return response.data
-          });
+      .get('/products')
+      .then(response => {
+          return response.data
+      });
 
 const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
