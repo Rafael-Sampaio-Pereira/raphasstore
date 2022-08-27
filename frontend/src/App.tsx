@@ -13,6 +13,9 @@ import Badge from '@material-ui/core/Badge';
 // Styles
 import { Wrapper, StyledButton } from './App.styles';
 
+// Services
+import api from './services/fakestoreapi';
+
 // Types
 export type CartItemType = {
   id: number;
@@ -25,7 +28,11 @@ export type CartItemType = {
 }
 
 const getProducts = async (): Promise<CartItemType[]> =>
-  await (await fetch('https://fakestoreapi.com/products')).json();
+   api
+          .get('/products')
+          .then(response => {
+              return response.data
+          });
 
 const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
@@ -78,7 +85,7 @@ const App = () => {
         />
       </Drawer>
       <StyledButton onClick={() => setCartOpen(true)}>
-        <Badge badgeContent={getTotalItems(cartItems)} color='error'>
+        <Badge overlap='rectangular' badgeContent={getTotalItems(cartItems)} color='error'>
           <AddShoppingCart />
         </Badge>
       </StyledButton>
