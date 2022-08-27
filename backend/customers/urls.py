@@ -6,7 +6,7 @@ app_name = 'customers'
 
 urlpatterns = [
     path(
-        'customers/', views.CustomerListAPIView.as_view(),
+        '', views.CustomerListAPIView.as_view(),
         name='customer-list'
     )
 ]

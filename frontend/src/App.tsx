@@ -1,12 +1,11 @@
-// import GlobalStyle from './styles/global';
+import GlobalStyle from './Styles/global';
 import HomePage from './Pages/HomePage/HomePage';
 
 function App() {
     return (
     <>
-        {/* <GlobalStyle /> */}
-    {/* <Routes /> */}
-    <HomePage />
+        <GlobalStyle />
+        <HomePage />
     </>
     );
 }

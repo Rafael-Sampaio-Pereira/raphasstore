@@ -14,7 +14,8 @@ import Badge from '@material-ui/core/Badge';
 import { Wrapper, StyledButton } from './HomePage.styles';
 
 // Services
-import api from '../../Services/fakestoreapi';
+// import api from '../../Services/fakestoreapi';
+import api from '../../Services/api';
 
 // Types
 import { CartItemType } from '../../Resources/Types';

@@ -1,5 +1,4 @@
 from django.db import models
-from more_itertools import first
 
 
 class Customer(models.Model):
