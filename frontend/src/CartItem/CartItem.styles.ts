@@ -13,9 +13,9 @@ export const Wrapper = styled.div`
     }
 
     .information,
-    .button {
+    .buttons {
         display: flex;
-        justfy-content: space-between;
+        justify-content: space-between;
     }
 
     img {
