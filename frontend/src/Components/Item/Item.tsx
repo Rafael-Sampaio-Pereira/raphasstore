@@ -2,7 +2,7 @@ import { Button } from "@material-ui/core";
 import React from "react";
 
 // Types
-import { CartItemType } from "../../App";
+import { CartItemType } from '../../Resources/Types';
 
 // Styles
 import { Wrapper } from "./Item.styles";
