@@ -5,6 +5,7 @@ export default {
   background_button: '#4A148C',
   font_titles: '#4A148C',
   font_prices_primary: '#212121',
+  navbar_font_color: '#F5F5F5',
 
   background_button_hover: '#31244a',
   route_cam_pages: '#fff',

@@ -87,7 +87,7 @@ const HomePage = () => {
       </StyledButton>
       <Grid container spacing={3}>
           <Grid className='header-banner' item key='header_banner' xl={12} lg={12} md={12} sm={12} xs={12}>
-            <img  src={HeaderBanner} alt='RaphasStore. Sua camiseta Sport está aqui!' /> 
+            <img src={HeaderBanner} alt='RaphasStore. Sua camiseta Sport está aqui!' /> 
           </Grid>
         {data?.map(item => (
           <Grid item key={item.id} xl={2} lg={2} md={4} sm={6} xs={12}>
