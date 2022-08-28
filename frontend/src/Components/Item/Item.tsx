@@ -1,6 +1,9 @@
 import { Button } from "@material-ui/core";
 import React from "react";
 
+// Images
+import DefaultShirt from '../../assets/images/default_shirt.png'
+
 // Types
 import { CartItemType } from '../../Resources/Types';
 
@@ -13,8 +16,12 @@ type Props = {
 }
 
 const Item: React.FC<Props> = ({ item, handleAddToCart }) => (
+
+
+
     <Wrapper>
-        <img src={item.image} alt={item.title} />
+        
+        <img src={item.image ? item.image : DefaultShirt} alt={item.title} /> 
         <div>
             <p className="title">{item.title}</p>
             <p className="price">R$ {item.price}</p>

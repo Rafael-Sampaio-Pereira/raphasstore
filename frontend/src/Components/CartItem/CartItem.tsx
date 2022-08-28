@@ -6,6 +6,9 @@ import { CartItemType } from '../../Resources/Types';
 // Styles
 import { Wrapper } from "./CartItem.styles";
 
+// Images
+import DefaultShirt from '../../assets/images/default_shirt.png'
+
 type Props = {
     item: CartItemType;
     addToCart: (clickedItem: CartItemType) => void;
@@ -42,7 +45,7 @@ const CartItem: React.FC<Props> = ({ item, addToCart, removeFromCart}) => (
                 </Button>
             </div>
         </div>
-        <img src={item.image} alt={item.title}/>
+        <img src={item.image ? item.image : DefaultShirt} alt={item.title} /> 
     </Wrapper>
 )
 
