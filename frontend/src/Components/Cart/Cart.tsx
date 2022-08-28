@@ -18,7 +18,7 @@ const calculateTotal = (items: CartItemType[]) =>
 
     return (
         <Wrapper>
-            <h2>Seu Carrinho</h2>
+            <p className="cart-title">Seu Carrinho</p>
             {cartItems.length === 0 ? <p>Não há itens no carrinho.</p> : null}
             {cartItems.map(item => (
                 <CartItem 

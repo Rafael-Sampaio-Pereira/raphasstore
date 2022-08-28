@@ -66,7 +66,7 @@ const HomePage = () => {
   };
 
   if (isLoading) return <LinearProgress/>;
-  if (error) return <div>Something went wrong ...</div>
+  if (error) return <div>Ops, houve um erro inesperado ...</div>
 
   return (
     <Wrapper>
@@ -84,7 +84,7 @@ const HomePage = () => {
       </StyledButton>
       <Grid container spacing={3}>
         {data?.map(item => (
-          <Grid item key={item.id} xl={2} lg={3} md={4} sm={6} xs={12}>
+          <Grid item key={item.id} xl={2} lg={2} md={4} sm={6} xs={12}>
             <Item item={item} handleAddToCart={handleAddToCart}/>
           </Grid>
         ))}

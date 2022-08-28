@@ -1,7 +1,11 @@
 export default {
-  background_primary:'#191c23',
-  background_secondary: '#2c2c3a',
-  background_button: '#4d347b',
+  background_primary:'#F5F5F5',
+  background_secondary: '#EEEEEE',
+  font_primary_color: '#37474F',
+  background_button: '#4A148C',
+  font_titles: '#4A148C',
+  font_prices_primary: '#212121',
+
   background_button_hover: '#31244a',
   route_cam_pages: '#fff',
   font_button: '#fff',
@@ -12,7 +16,6 @@ export default {
   black_box_color: '#111',
   black_box: '#000',
   primary_color: '#282C31',
-  font_primary_color: '#fff',
   border_player_color: '#4d4d4d !important',
   border_title_color: '#ebeff2',
   border_container_color: '#4d4d4d',
