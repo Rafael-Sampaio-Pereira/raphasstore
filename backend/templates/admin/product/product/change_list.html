@@ -2,7 +2,15 @@
 {% load static %}
 {% block content %}
 
-<a href="upload-csv/">Enviar produtos em massa utilizando CSV</a>
-
+<div>
+<ul class="object-tools" style="margin-bottom: 50px; padding-bottom:10px;">
+    <li>
+        <a href="upload-csv/" class="addlink">
+            Enviar produtos em massa utilizando CSV
+        </a>
+    </li>      
+</ul>
+</div>
 {{ block.super }}
 {% endblock %}
+
