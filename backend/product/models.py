@@ -10,6 +10,8 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True, upload_to='media')
     price = models.FloatField(null=False, blank=False)
     purchase_price = models.FloatField(null=False, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
     class Meta:
         ordering = ['title', 'description', 'brand',  'sku', 'category', 'purchase_price', 'price', 'image']

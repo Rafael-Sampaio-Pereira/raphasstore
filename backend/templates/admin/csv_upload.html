@@ -1,0 +1,19 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<strong>ATENÇÃO:</strong>
+<p>Fique a tento a estrutura do seu arquivo csv.</p>
+<p>Tenha em mente que o valor final de cada produto será calculado de a acordo com a margem de lucro informada na tabela.</p>
+<p>O preço de compra será a base de calculo para o preço final utilizando a margem de lucro.</p>
+<p>Ambos os valores devem ser informado na tabela.</p>
+<p>Após o upload da planilha, os produtos serão cadastrados sem foto. Você poderá adicionar as fotos depois quando quiser.</p>
+<div>
+    <form method="post" action="." enctype="multipart/form-data">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit">
+            Enviar arquivo CSV
+        </button>
+    </form>
+</div>
+{% endblock %}
