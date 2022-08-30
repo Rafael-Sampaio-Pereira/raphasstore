@@ -48,10 +48,11 @@ class ProductAdmin(admin.ModelAdmin):
                     if index == 0:
                         continue
                     
-                    elif index < len(csv_data)-1:
+                    elif index < len(csv_data):
                         
                         # get line fields, csv must be separetade using ';'
                         fields = x.split(';')
+                        print(fields[0])
                         profit = int(fields[7])
                         purchase_price = float(str(fields[6]).replace(',','.'))
                         
@@ -77,8 +78,7 @@ class ProductAdmin(admin.ModelAdmin):
             except Exception as e:
                 errors += str(e) + '\n'
             
-            
-            
+
             if errors:
                 messages.error(
                     request, 

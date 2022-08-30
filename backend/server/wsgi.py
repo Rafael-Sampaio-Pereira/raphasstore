@@ -7,10 +7,22 @@ For more information on this file, see
 https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/
 """
 
-import os
+# import os
 
+# from django.core.wsgi import get_wsgi_application
+
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'server.settings')
+
+# application = get_wsgi_application()
+
+
+import os
+from django.conf import settings
+from django.contrib.staticfiles.handlers import StaticFilesHandler
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'server.settings')
-
-application = get_wsgi_application()
+if settings.DEBUG:
+    application = StaticFilesHandler(get_wsgi_application())
+else:
+    application = get_wsgi_application()

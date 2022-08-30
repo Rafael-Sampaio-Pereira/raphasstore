@@ -30,3 +30,5 @@ venv
 .eslintcache
 
 roteiro.txt
+
+*/django_static

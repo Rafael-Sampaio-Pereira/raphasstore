@@ -58,6 +58,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'server.urls'
 
+TEMPLATE_DIR=os.path.join(BASE_DIR,'templates')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -152,3 +154,5 @@ GRAPH_MODELS = {
     'all_applications': True,
     'group_models': True,
 }
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']

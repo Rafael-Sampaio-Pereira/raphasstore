@@ -1,4 +1,11 @@
-{% extends 'admin/base.html' %}
+
+
+
+{% extends "admin/base.html" %}
+{% load static %}
+{% load i18n  static %}
+
+{% block title %}{{ title }} | {% trans "RaphasStore" %}{% endblock %}
 {% block extrastyle %}
 <style type="text/css">
      #branding h1, #branding h1 a:link, #branding h1 a:visited {
@@ -163,61 +170,10 @@ input[type=file]::-webkit-file-upload-button:hover {
 }
 
 </style>
-<style type="text/css">
-
-.container {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-}
-
-.send-button {
-	box-shadow:inset 0px 1px 0px 0px #cfaf6e;
-	background:linear-gradient(to bottom, #cf871b 5%, #ba5017 100%);
-	background-color:#cf871b;
-	border-radius:3px;
-	border:1px solid #945512;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:13px;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #855c29;
-}
-.send-button:hover {
-	background:linear-gradient(to bottom, #ba5017 5%, #cf871b 100%);
-	background-color:#ba5017;
-}
-.send-button:active {
-	position:relative;
-	top:1px;
-}
-
-
-.warning-text {color: #e77408;}
-</style>
 {% endblock %}
-{% block content %}
 
-<div class="container">
-    <form method="post" action="." enctype="multipart/form-data">
-    <fieldset>
-        <legend><strong class="warning-text">ATENÇÃO:</strong></legend>
-    <br>
-    <p>Fique a tento a estrutura do seu arquivo csv.</p>
-    <p>Tenha em mente que o valor final de cada produto será calculado de a acordo com a margem de lucro informada na tabela.</p>
-    <p>O preço de compra será a base de calculo para o preço final utilizando a margem de lucro.</p>
-    <p>Ambos os valores devem ser informado na tabela.</p>
-    <p>Após o upload da planilha, os produtos serão cadastrados sem foto. Você poderá adicionar as fotos depois quando quiser.</p>
-    
-        {{ form.as_p }}
-        {% csrf_token %}
-        <button class="send-button" type="submit">
-            Enviar arquivo CSV
-        </button>
-    </fieldset>
-</form>
-</div>
+{% block branding %}
+     <h1 id="site-name">{% trans "RaphasStore" %}</h1>
 {% endblock %}
+
+{% block nav-global %}{% endblock %}
