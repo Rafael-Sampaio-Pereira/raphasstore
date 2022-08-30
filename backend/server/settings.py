@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_extensions',
     'corsheaders',
 ]
 
@@ -144,4 +145,10 @@ SPETACULAR_SETTINGS = {
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     #OTHERS SETTINGS
+}
+
+# Generate db diagram: python manage.py graph_models -a > erd.dot && python manage.py graph_models --pydot -a -g -o database_diagram.png #noqa
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
 }
