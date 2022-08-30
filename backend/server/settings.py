@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'customers',
+    'drf_spectacular', # django_rest_framework spetacular used to generate swagger documentation
     'product',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -133,3 +133,15 @@ STATICFILES_DIRS = [BASE_DIR / 'django_static/staticfiles_dirs', ]
 MEDIA_URL = '/media/'
 STATIC_URL = '/django_static/'
 STATIC_ROOT = BASE_DIR / 'django_static'
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPETACULAR_SETTINGS = {
+    'TITLE': 'RaphasStore API',
+    'DESCRIPTION': 'RaphasStore API documentation and endpoints',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    #OTHERS SETTINGS
+}
