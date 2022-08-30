@@ -71,7 +71,9 @@ class ProductAdmin(admin.ModelAdmin):
                                 initial_quantity = fields[5],
                                 remaning_quantity = fields[5],
                                 profit_margin = profit,
-                                purchase_price = purchase_price
+                                purchase_price = purchase_price,
+                                size = fields[8],
+                                color = fields[9]
                             )
                             created_cont += 1
                             
@@ -100,6 +102,8 @@ class InvetoryAdmin(admin.ModelAdmin):
     read_only_fields = ('created_at', 'updated_at', )
     list_display = (
             'product',
+            'color',
+            'size',
             'initial_quantity',
             'remaning_quantity',
             'purchase_price',

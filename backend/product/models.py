@@ -37,6 +37,8 @@ class Inventory(models.Model):
     purchase_price = models.FloatField(null=False, blank=False)
     remaning_quantity = models.IntegerField(null=False, blank=False)
     profit_margin = models.IntegerField(null=False, blank=False)
+    size = models.CharField(max_length=5, null=True, blank=True,)
+    color = models.CharField(max_length=100, null=True, blank=True,)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
@@ -47,6 +49,8 @@ class Inventory(models.Model):
             'remaning_quantity',
             'purchase_price',
             'profit_margin',
+            'color',
+            'size',
             'updated_at'
         ]
 
