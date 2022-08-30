@@ -32,3 +32,6 @@ venv
 roteiro.txt
 
 */django_static
+
+*.pyc
+*/__pycache__/*
