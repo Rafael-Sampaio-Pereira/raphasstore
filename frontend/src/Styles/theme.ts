@@ -20,7 +20,7 @@ export const theme = createTheme({
         primary: {
             // main: colorName[hue],
             // we have to import the color first to use it
-            main: '#4A148C',
+            main: '#0b0909',
         },
         secondary: {
             main: orange[400],

@@ -3,6 +3,8 @@ import { IconButton } from "@material-ui/core";
 
 export const Wrapper = styled.div`
     
+    margin-left: 60px;
+    margin-right: 60px;
 
     .header-banner {
         padding-bottom: 40px;

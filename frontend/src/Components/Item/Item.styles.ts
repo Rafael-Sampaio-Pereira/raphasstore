@@ -11,10 +11,16 @@ export const Wrapper = styled.div`
     height: 100%;
     background: ${colors.background_secondary};
 
+    &:hover { box-shadow: 0 0 50px #ccc; }
+
     button {
         border-radius: 0 0 20px 20px;
         background: ${colors.background_button};
         color: #FAFAFA;
+    }
+
+    button:hover {
+        background: ${colors.background_button_hover};
     }
 
     .title {
