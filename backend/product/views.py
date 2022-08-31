@@ -10,6 +10,8 @@ from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.authentication import SessionAuthentication
 
 
 # This is for public access like stores home pages
@@ -22,7 +24,7 @@ class ProductListAPIView(generics.ListAPIView):
 # This is for private access like admin pages wich requires a authentication services middleware
 class ProductViews(APIView):
     serializer_class = ProductSerializer
-    authentication_classes = (JWTAuthentication,)
+    authentication_classes = (JWTAuthentication, BasicAuthentication, SessionAuthentication,)
     permission_classes = (IsAuthenticated,)
     parser_classes = (FormParser, MultiPartParser,)
     
