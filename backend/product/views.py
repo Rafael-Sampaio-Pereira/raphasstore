@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions, viewsets
 
-from .controller import create, retrieve_one_or_list, destroy, partial_update
+from .controller import create, get_one, destroy, partial_update, get_list
 
 from .models import Product
 from .serializers import ProductSerializer
@@ -41,10 +41,13 @@ class ProductViews(mixins.UpdateModelMixin, viewsets.GenericViewSet):
 
     #get list or get by id
     def retrieve(self, request, id=None):
-        return retrieve_one_or_list(id)
+        return get_one(id)
 
     def partial_update(self, request, id=None):
         return partial_update(request, id)
 
     def destroy(self, request, id=None):
         return destroy(id)
+    
+    def list(self, request):
+        return get_list(request)
