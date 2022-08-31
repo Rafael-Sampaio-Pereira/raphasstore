@@ -36,7 +36,8 @@ def get_one(id):
     return Response(
         {
             "status": "success", 
-            "data": serializer.data
+            "data": serializer.data,
+            "message": None
         }, 
         status=status.HTTP_200_OK
     )
@@ -47,7 +48,8 @@ def get_list(request):
     return Response(
         {
             "status": "success", 
-            "data": serializer.data
+            "data": serializer.data,
+            "message": None
         }, 
         status=status.HTTP_200_OK
     )
@@ -58,7 +60,8 @@ def destroy(id):
     return Response(
         {
             "status": "success", 
-            "data": f"{MODEL_CLASS.__name__}: Item deletado com sucesso."
+            "data": None,
+            "message": f"{MODEL_CLASS.__name__}: Item deletado com sucesso."
         }
     )
 
