@@ -148,7 +148,12 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+    ),
 }
 
 SIMPLE_JWT = {
@@ -187,7 +192,20 @@ SPETACULAR_SETTINGS = {
     'DESCRIPTION': 'RaphasStore API documentation and endpoints',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
+    'COMPONENT_SPLIT_REQUEST': True,
     #OTHERS SETTINGS
+}
+
+# Security settings that allows sweggar acts as a api client (e.g. insominia or postman)
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "JWT [Bearer {JWT}]": {
+            "name": "Authorization",
+            "type": "apiKey",
+            "in": "header",
+        }
+    },
+    "USE_SESSION_AUTH": False,
 }
 
 # Generate db diagram: python manage.py graph_models -a > erd.dot && python manage.py graph_models --pydot -a -g -o database_diagram.png #noqa
