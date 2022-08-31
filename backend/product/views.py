@@ -9,7 +9,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.authentication import SessionAuthentication
 
@@ -26,9 +26,9 @@ class ProductViews(APIView):
     serializer_class = ProductSerializer
     authentication_classes = (JWTAuthentication, BasicAuthentication, SessionAuthentication,)
     permission_classes = (IsAuthenticated,)
-    parser_classes = (FormParser, MultiPartParser,)
+    parser_classes = (FormParser, MultiPartParser, JSONParser,)
     
-    def post(self, request):
+    def post(self, request):       
         serializer = ProductSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -74,7 +74,8 @@ class ProductViews(APIView):
 
     def patch(self, request, id=None):
         item = get_object_or_404(Product, id=id)
-        serializer = ProductSerializer(item, data=request.data, partial=True)
+        # item = Product.objects.get(pk=id)
+        serializer = ProductSerializer(instance=item, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(
