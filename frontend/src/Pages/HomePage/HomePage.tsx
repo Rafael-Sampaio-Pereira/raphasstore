@@ -26,7 +26,7 @@ import HeaderBanner from '../../assets/images/header_banner.png'
 
 const getProducts = async (): Promise<CartItemType[]> =>
     api
-      .get('/products/list')
+      .get('/products/all')
       .then(response => {
           return response.data
       });

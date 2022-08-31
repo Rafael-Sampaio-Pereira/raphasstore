@@ -23,7 +23,6 @@ class ProductListAPIView(generics.ListAPIView):
     permission_classes = [permissions.AllowAny]
     queryset = Product.objects.all()
 
-
 # This is for private access like admin pages wich requires a authentication services middleware
 class ProductViews(mixins.UpdateModelMixin, viewsets.GenericViewSet):
     serializer_class = ProductSerializer
