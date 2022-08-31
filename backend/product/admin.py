@@ -13,7 +13,7 @@ class CsvImportForm(forms.Form):
 
 class ProductAdmin(admin.ModelAdmin):
     read_only_fields = ('created_at', 'updated_at', )
-    list_display = ('id', 'title', 'description', 'price', 'brand', 'category', 'created_at', 'updated_at',)
+    list_display = ('id', 'title', 'description', 'price', 'brand', 'category', 'updated_at',)
     
     def get_urls(self):
         urls = super().get_urls()
