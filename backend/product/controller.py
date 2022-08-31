@@ -85,3 +85,24 @@ def partial_update(request, id):
                 "message": f"{MODEL_CLASS.__name__}: Não foi possível realizar a atualização.",
             }
         )
+
+def full_update(request, id): 
+    item = get_object_or_404(Product, id=id)
+    serializer = ProductSerializer(instance=item, data=request.data, partial=False)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(
+            {
+                "status": "success", 
+                "data": serializer.data,
+                "message": f"{MODEL_CLASS.__name__}: Atualização realizada com sucesso!",
+            }
+        )
+    else:
+        return Response(
+            {
+                "status": "error", 
+                "data": serializer.errors,
+                "message": f"{MODEL_CLASS.__name__}: Não foi possível realizar a atualização.",
+            }
+        )

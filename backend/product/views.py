@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions, viewsets
 
-from .controller import create, get_one, destroy, partial_update, get_list
+from .controller import create, get_one, destroy, partial_update, get_list, full_update
 
 from .models import Product
 from .serializers import ProductSerializer
@@ -44,6 +44,10 @@ class ProductViews(mixins.UpdateModelMixin, viewsets.GenericViewSet):
 
     def partial_update(self, request, id=None):
         return partial_update(request, id)
+    
+    # UpdateModelMixin already have a update method, so we need another name
+    def full_update(self, request, id=None):
+        return full_update(request, id)
 
     def destroy(self, request, id=None):
         return destroy(id)

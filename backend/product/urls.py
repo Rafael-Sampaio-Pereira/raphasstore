@@ -10,7 +10,7 @@ group_actions = {
 
 single_actions = {
     'get': 'retrieve',
-    # 'put': 'update',
+    'put': 'full_update',
     'patch': 'partial_update',
     'delete': 'destroy',
 }
