@@ -62,7 +62,7 @@ urlpatterns += [
 urlpatterns += [
     path("api/docs/", include_docs_urls(title="RaphasStoreAPI")),
     path(
-        "api/schema",
+        "api/schema/",
         get_schema_view(
             title="RaphasStore",
             description="API for the RaphasStore",

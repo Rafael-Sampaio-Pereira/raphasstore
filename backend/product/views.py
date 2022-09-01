@@ -5,8 +5,8 @@ from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
-from .controllers import (create, destroy, full_update, get_list,
-                          get_one, partial_update)
+from .controllers import (create, destroy, full_update, get_list, get_one,
+                          partial_update)
 from .models import Product
 from .serializers import ProductSerializer
 
