@@ -1,14 +1,10 @@
-from django import forms
 from django.contrib import admin, messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import path, reverse
 
 from .models import Inventory, Product
-
-
-class CsvImportForm(forms.Form):
-    csv_upload = forms.FileField(label="Arquivo com Produtos")
+from .forms import CsvImportForm
 
 
 class ProductAdmin(admin.ModelAdmin):
