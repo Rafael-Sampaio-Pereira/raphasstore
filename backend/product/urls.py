@@ -15,5 +15,5 @@ single_actions = {
 urlpatterns = [
     path("", views.ProductViews.as_view(group_actions)),
     re_path(r"^(?P<id>\d+)$", views.ProductViews.as_view(single_actions)),
-    path("all/", views.ProductListAPIView.as_view(), name="products"),
+    path("all/", views.ProductListAPIView.as_view(), name="all"),
 ]

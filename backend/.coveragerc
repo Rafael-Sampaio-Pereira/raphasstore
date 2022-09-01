@@ -1,0 +1,27 @@
+[run]
+source = .
+
+omit = 
+    */__init__.py
+    */settings.py
+    */manage.py
+    */wsgi.py
+    */asgi.py
+    */apps.py
+    */urls.py
+    */admin.py
+    */migrations/*
+    */fabfile.py
+    */django_google_maps/*
+    */authenticate/*
+    */mixins/*
+    */dashlite/*
+    */tests/*
+    */management/*
+    */camera/*
+    */common/filters/thermal_filter.py
+    **/venv/*
+
+[coverage:report]
+skip_empty = true
+omit = **/migrations/*,**/test*,
