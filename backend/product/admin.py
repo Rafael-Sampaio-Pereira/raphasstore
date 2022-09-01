@@ -3,7 +3,6 @@ from django.contrib import admin, messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import path, reverse
-
 from .models import Inventory, Product
 
 
@@ -43,7 +42,10 @@ class ProductAdmin(admin.ModelAdmin):
             csv_file = request.FILES["csv_upload"]
 
             if not csv_file.name.endswith(".csv"):
-                messages.warning(request, "Atenção: O arquivo enviado não é válido!")
+                messages.warning(
+                    request,
+                    "Atenção: O arquivo enviado não é válido!"
+                )
                 return HttpResponseRedirect(request.path_info)
 
             try:
@@ -67,7 +69,9 @@ class ProductAdmin(admin.ModelAdmin):
                         fields = x.split(";")
                         print(fields[0])
                         profit = int(fields[7])
-                        purchase_price = float(str(fields[6]).replace(",", "."))
+                        purchase_price = float(
+                            str(fields[6]).replace(",", ".")
+                        )
 
                         _product, created = Product.objects.update_or_create(
                             title=fields[0],
@@ -78,7 +82,10 @@ class ProductAdmin(admin.ModelAdmin):
                             # calculate final price using profit_margin +
                             # purchase_price
                             price=round(
-                                purchase_price + (purchase_price * profit / 100), 2
+                                purchase_price + (
+                                    purchase_price * profit / 100
+                                ),
+                                2
                             ),
                         )
 
@@ -100,12 +107,14 @@ class ProductAdmin(admin.ModelAdmin):
             if errors:
                 messages.error(
                     request,
-                    f"Arquivo .csv processado. {created_cont} produtos cadastrados. Erros {errors}",
+                    f"Arquivo .csv processado. {created_cont} "
+                    f"produtos cadastrados. Erros {errors}",
                 )
             else:
                 messages.success(
                     request,
-                    f"Arquivo .csv processado. {created_cont} produtos cadastrados com sucesso!",
+                    f"Arquivo .csv processado. {created_cont} "
+                    "produtos cadastrados com sucesso!",
                 )
             return HttpResponseRedirect(index_url)
 

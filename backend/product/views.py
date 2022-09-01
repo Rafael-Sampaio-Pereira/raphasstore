@@ -1,13 +1,12 @@
-from django.shortcuts import get_object_or_404
-from rest_framework import generics, mixins, permissions, status, viewsets
-from rest_framework.authentication import BasicAuthentication, SessionAuthentication
+from rest_framework import generics, mixins, permissions, viewsets
+from rest_framework.authentication import (BasicAuthentication,
+                                           SessionAuthentication)
 from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
-from .controllers import create, destroy, full_update, get_list, get_one, partial_update
+from .controllers import (create, destroy, full_update, get_list,
+                          get_one, partial_update)
 from .models import Product
 from .serializers import ProductSerializer
 
@@ -21,8 +20,6 @@ class ProductListAPIView(generics.ListAPIView):
 
 # This is for private access like admin pages wich requires a
 # authentication services middleware
-
-
 class ProductViews(mixins.UpdateModelMixin, viewsets.GenericViewSet):
     serializer_class = ProductSerializer
     authentication_classes = (

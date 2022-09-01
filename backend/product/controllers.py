@@ -27,7 +27,9 @@ def create(request):
             {
                 "status": "error",
                 "data": serializer.errors,
-                "message": (f"{CLASS_NAME}: Não foi possível realizar o cadastro."),
+                "message": (
+                    f"{CLASS_NAME}: Não foi possível realizar o cadastro."
+                ),
             },
             status=status.HTTP_400_BAD_REQUEST,
         )
@@ -65,7 +67,11 @@ def destroy(id):
 
 def partial_update(request, id):
     item = get_object_or_404(Product, id=id)
-    serializer = ProductSerializer(instance=item, data=request.data, partial=True)
+    serializer = ProductSerializer(
+        instance=item,
+        data=request.data,
+        partial=True
+    )
     if serializer.is_valid():
         serializer.save()
         return Response(
@@ -80,14 +86,20 @@ def partial_update(request, id):
             {
                 "status": "error",
                 "data": serializer.errors,
-                "message": (f"{CLASS_NAME}: Não foi possível realizar a atualização."),
+                "message": (
+                    f"{CLASS_NAME}: Não foi possível realizar a atualização."
+                ),
             }
         )
 
 
 def full_update(request, id):
     item = get_object_or_404(Product, id=id)
-    serializer = ProductSerializer(instance=item, data=request.data, partial=False)
+    serializer = ProductSerializer(
+        instance=item,
+        data=request.data,
+        partial=False
+    )
     if serializer.is_valid():
         serializer.save()
         return Response(
@@ -102,6 +114,8 @@ def full_update(request, id):
             {
                 "status": "error",
                 "data": serializer.errors,
-                "message": (f"{CLASS_NAME}: Não foi possível realizar a atualização."),
+                "message": (
+                    f"{CLASS_NAME}: Não foi possível realizar a atualização."
+                ),
             }
         )

@@ -66,5 +66,8 @@ class Inventory(models.Model):
 
     def __str__(self):
         return (
-            f"{self.product.title} {str(self.product.brand)} - {self.remaning_quantity}"
+            (
+                f"{self.product.title} {str(self.product.brand)} - "
+                f"{self.remaning_quantity}"
+            )
         )
