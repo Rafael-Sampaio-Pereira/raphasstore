@@ -16,12 +16,12 @@ import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 
 import MenuIcon from '@material-ui/icons/Menu';
 import HomeIcon from '@material-ui/icons/Home';
-import SchoolIcon from '@material-ui/icons/School';
+// import SchoolIcon from '@material-ui/icons/School';
 import PersonIcon from '@material-ui/icons/Person';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg'
 
 import HomePage from '../../Pages/HomePage/HomePage';
-import ContactPages from '../../Pages/ContactsPage/ContactsPage';
+// import ContactPages from '../../Pages/ContactsPage/ContactsPage';
 import AboutPage from '../../Pages/AboutPage/AboutPage';
 
 // styles
@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(2)
     },
     title: {
-        flexGrow: 1
+        flexGrow: 1,
+        color: 'white'
     }
 }));
 
@@ -58,41 +59,43 @@ const NavBar = (props: any) => {
                     edge='start'
                     color='inherit'
                     aria-label='logo'
+                    component={Link}
+                    to='/'
                 >
-                    <Logo height={70} width={70} />
+                    <Logo fill='white' height={70} width={70} />
                 </IconButton>
                 <Typography
-                variant='h5'
-                component='p'
-                color='textSecondary'
-                className={classes.title}
+                    variant='h5'
+                    component='p'
+                    color='textSecondary'
+                    className={classes.title}
                 >
-                RaphasStore
+                    RaphasStore
                 </Typography>
                 {isMobile ? (
                 <>
                     <IconButton
-                    color='secondary'
-                    className={classes.menuButton}
-                    edge='start'
-                    aria-label='menu'
-                    onClick={handleMenu}
+                        color='secondary'
+                        className={classes.menuButton}
+                        edge='start'
+                        aria-label='menu'
+                        onClick={handleMenu}
                     >
                         <MenuIcon />
                     </IconButton>
                     <Menu
-                    id='menu-appbar'
-                    anchorEl={anchor}
-                    anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right'
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right'
-                    }}
-                    open={open}
+                        id='menu-appbar'
+                        anchorEl={anchor}
+                        anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right'
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right'
+                        }}
+                        open={open}
                     >
                         <MenuItem
                             onClick={() => setAnchor(null)}
@@ -103,16 +106,6 @@ const NavBar = (props: any) => {
                                 <HomeIcon />
                             </ListItemIcon>
                             <Typography variant='h6'> Home</Typography>
-                        </MenuItem>
-                        <MenuItem
-                            onClick={() => setAnchor(null)}
-                            component={Link}
-                            to='/Contacts'
-                        >
-                            <ListItemIcon>
-                                <SchoolIcon />
-                            </ListItemIcon>
-                            <Typography variant='h6'> Contacts </Typography>
                         </MenuItem>
                         <MenuItem
                             onClick={() => setAnchor(null)}
@@ -132,7 +125,7 @@ const NavBar = (props: any) => {
                     variant='text'
                     component={Link}
                     to='/'
-                    color='default'
+                    color='inherit'
                     >
                     <HomeIcon />
                     Home
@@ -140,17 +133,8 @@ const NavBar = (props: any) => {
                     <Button
                     variant='text'
                     component={Link}
-                    to='/Contacts'
-                    color='default'
-                    >
-                    <SchoolIcon />
-                    Contacts
-                    </Button>
-                    <Button
-                    variant='text'
-                    component={Link}
                     to='/About'
-                    color='default'
+                    color='inherit'
                     >
                     <PersonIcon />
                     About
@@ -160,9 +144,8 @@ const NavBar = (props: any) => {
             </Toolbar>
             </AppBar>
             <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/contact' element={<ContactPages />} />
-            <Route path='/about' element={<AboutPage />} />
+                <Route path='/' element={<HomePage />} />
+                <Route path='/about' element={<AboutPage />} />
             </Routes>
         </BrowserRouter>
     </div>

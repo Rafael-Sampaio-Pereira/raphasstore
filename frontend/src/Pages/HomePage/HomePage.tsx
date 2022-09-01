@@ -83,9 +83,9 @@ const HomePage = () => {
           removeFromCart={handleRemoveFromCart}
         />
       </Drawer>
-      <StyledButton onClick={() => setCartOpen(true)}>
+      <StyledButton color='secondary' size='medium' onClick={() => setCartOpen(true)}>
         <Badge overlap='rectangular' badgeContent={getTotalItems(cartItems)} color='error'>
-          <AddShoppingCart />
+          <AddShoppingCart fontSize='large' />
         </Badge>
       </StyledButton>
       <Grid container spacing={3}>
