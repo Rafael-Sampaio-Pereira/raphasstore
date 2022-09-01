@@ -13,6 +13,8 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     
     class Meta:
+        verbose_name = 'Produto'
+        verbose_name_plural = 'Produto'
         ordering = [
             'title',
             'description',
@@ -43,6 +45,8 @@ class Inventory(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     
     class Meta:
+        verbose_name = 'Estoque'
+        verbose_name_plural = 'Estoques'
         ordering = [
             'product',
             'initial_quantity',

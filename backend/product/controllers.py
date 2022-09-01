@@ -16,7 +16,7 @@ def create(request):
             {
                 "status": "success", 
                 "data": serializer.data,
-                "message": f"{MODEL_CLASS.__name__}: Cadastrado realizado com sucesso!"
+                "message": f"{MODEL_CLASS._meta.verbose_name.title()}: Cadastrado realizado com sucesso!"
             }, 
             status=status.HTTP_201_CREATED
         )
@@ -25,7 +25,7 @@ def create(request):
             {
             "status": "error", 
             "data": serializer.errors,
-            "message": f"{MODEL_CLASS.__name__}: Não foi possível realizar o cadastro."
+            "message": f"{MODEL_CLASS._meta.verbose_name.title()}: Não foi possível realizar o cadastro."
             }, 
             status=status.HTTP_400_BAD_REQUEST
         )
@@ -61,7 +61,7 @@ def destroy(id):
         {
             "status": "success", 
             "data": None,
-            "message": f"{MODEL_CLASS.__name__}: Item deletado com sucesso."
+            "message": f"{MODEL_CLASS._meta.verbose_name.title()}: Item deletado com sucesso."
         }
     )
 
@@ -74,7 +74,7 @@ def partial_update(request, id):
             {
                 "status": "success", 
                 "data": serializer.data,
-                "message": f"{MODEL_CLASS.__name__}: Atualização realizada com sucesso!",
+                "message": f"{MODEL_CLASS._meta.verbose_name.title()}: Atualização realizada com sucesso!",
             }
         )
     else:
@@ -82,7 +82,7 @@ def partial_update(request, id):
             {
                 "status": "error", 
                 "data": serializer.errors,
-                "message": f"{MODEL_CLASS.__name__}: Não foi possível realizar a atualização.",
+                "message": f"{MODEL_CLASS._meta.verbose_name.title()}: Não foi possível realizar a atualização.",
             }
         )
 
@@ -95,7 +95,7 @@ def full_update(request, id):
             {
                 "status": "success", 
                 "data": serializer.data,
-                "message": f"{MODEL_CLASS.__name__}: Atualização realizada com sucesso!",
+                "message": f"{MODEL_CLASS._meta.verbose_name.title()}: Atualização realizada com sucesso!",
             }
         )
     else:
@@ -103,6 +103,6 @@ def full_update(request, id):
             {
                 "status": "error", 
                 "data": serializer.errors,
-                "message": f"{MODEL_CLASS.__name__}: Não foi possível realizar a atualização.",
+                "message": f"{MODEL_CLASS._meta.verbose_name.title()}: Não foi possível realizar a atualização.",
             }
         )

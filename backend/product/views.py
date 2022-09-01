@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions, viewsets
 
-from .controller import create, get_one, destroy, partial_update, get_list, full_update
+from .controllers import create, get_one, destroy, partial_update, get_list, full_update
 
 from .models import Product
 from .serializers import ProductSerializer
