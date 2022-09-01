@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import { AddShoppingCart } from '@material-ui/icons';
 import Badge from '@material-ui/core/Badge';
 import Divider from '@mui/material/Divider';
+import Footer from '../../Components/Footer/Footer';
 
 // Styles
 import { Wrapper, StyledButton } from './HomePage.styles';
@@ -23,10 +24,11 @@ import { CartItemType } from '../../Resources/Types';
 
 // Images
 import HeaderBanner from '../../assets/images/header_banner.png'
+import BottomBanner from '../../assets/images/bottom_banner.png'
 
 const getProducts = async (): Promise<CartItemType[]> =>
     api
-      .get('/products/all')
+      .get('/product/all')
       .then(response => {
           return response.data
       });
@@ -92,13 +94,19 @@ const HomePage = () => {
           </Grid>
           <Grid item key='serach_area' xl={12} lg={12} md={12} sm={12} xs={12}>
             <Divider />
-            <Divider />
           </Grid>
         {data?.map(item => (
           <Grid item key={item.id} xl={2} lg={2} md={4} sm={6} xs={12}>
             <Item item={item} handleAddToCart={handleAddToCart}/>
           </Grid>
         ))}
+        <Grid className='bottom-banner' item key='bottom_banner' xl={12} lg={12} md={12} sm={12} xs={12}>
+            <img src={BottomBanner} alt='RaphasStore. Sua camiseta Sport está aqui!' />
+        </Grid>
+        <Grid item key='serach_area' xl={12} lg={12} md={12} sm={12} xs={12}>
+            <Divider />
+        </Grid>
+        <Footer />
       </Grid>
     </Wrapper>
   );
