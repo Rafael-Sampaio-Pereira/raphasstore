@@ -33,12 +33,13 @@ class ProductViews(mixins.UpdateModelMixin, viewsets.GenericViewSet):
         MultiPartParser,
         JSONParser,
     )
+    queryset = ''
 
     # This overrides the UpdateModelMixin update method and enable the partial
     # update
-    def update(self, request, *args, **kwargs):
-        kwargs["partial"] = True
-        return super().update(request, *args, **kwargs)
+    # def update(self, request, *args, **kwargs):
+    #     kwargs["partial"] = True
+    #     return super().update(request, *args, **kwargs)
 
     def create(self, request):
         return create(request)
@@ -51,7 +52,7 @@ class ProductViews(mixins.UpdateModelMixin, viewsets.GenericViewSet):
         return partial_update(request, id)
 
     # UpdateModelMixin already have a update method, so we need another name
-    def full_update(self, request, id=None):
+    def update(self, request, id=None):
         return full_update(request, id)
 
     def destroy(self, request, id=None):

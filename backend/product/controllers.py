@@ -61,7 +61,8 @@ def destroy(id):
             "status": "success",
             "data": None,
             "message": f"{CLASS_NAME}: Item deletado com sucesso.",
-        }
+        },
+        status=status.HTTP_200_OK
     )
 
 
@@ -79,7 +80,8 @@ def partial_update(request, id):
                 "status": "success",
                 "data": serializer.data,
                 "message": f"{CLASS_NAME}: Atualização realizada com sucesso!",
-            }
+            },
+            status=status.HTTP_200_OK
         )
     else:
         return Response(
@@ -89,7 +91,8 @@ def partial_update(request, id):
                 "message": (
                     f"{CLASS_NAME}: Não foi possível realizar a atualização."
                 ),
-            }
+            },
+            status=status.HTTP_400_BAD_REQUEST
         )
 
 
@@ -107,7 +110,8 @@ def full_update(request, id):
                 "status": "success",
                 "data": serializer.data,
                 "message": f"{CLASS_NAME}: Atualização realizada com sucesso!",
-            }
+            },
+            status=status.HTTP_200_OK
         )
     else:
         return Response(
@@ -117,5 +121,6 @@ def full_update(request, id):
                 "message": (
                     f"{CLASS_NAME}: Não foi possível realizar a atualização."
                 ),
-            }
+            },
+            status=status.HTTP_400_BAD_REQUEST
         )
