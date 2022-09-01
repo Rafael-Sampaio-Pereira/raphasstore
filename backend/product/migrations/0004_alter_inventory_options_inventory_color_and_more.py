@@ -6,22 +6,36 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('product', '0003_alter_product_options_remove_product_purchase_price_and_more'),
+        (
+            "product",
+            "0003_alter_product_options_remove_product_purchase_price_and_more",
+        ),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='inventory',
-            options={'ordering': ['product', 'initial_quantity', 'remaning_quantity', 'purchase_price', 'profit_margin', 'color', 'size', 'updated_at']},
+            name="inventory",
+            options={
+                "ordering": [
+                    "product",
+                    "initial_quantity",
+                    "remaning_quantity",
+                    "purchase_price",
+                    "profit_margin",
+                    "color",
+                    "size",
+                    "updated_at",
+                ]
+            },
         ),
         migrations.AddField(
-            model_name='inventory',
-            name='color',
+            model_name="inventory",
+            name="color",
             field=models.CharField(blank=True, max_length=100, null=True),
         ),
         migrations.AddField(
-            model_name='inventory',
-            name='size',
+            model_name="inventory",
+            name="size",
             field=models.CharField(blank=True, max_length=5, null=True),
         ),
     ]

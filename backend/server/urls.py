@@ -13,58 +13,62 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
-from django.contrib import admin
-from django.urls import path, include, re_path
-from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import include, path, re_path
+from django.views.generic import TemplateView
+from drf_spectacular.views import (
+    SpectacularAPIView,
+    SpectacularRedocView,
+    SpectacularSwaggerView,
+)
+from rest_framework.documentation import include_docs_urls
+from rest_framework.schemas import get_schema_view
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from rest_framework.schemas import get_schema_view
-from rest_framework.documentation import include_docs_urls
-
-
 # Configure titles
-admin.site.site_header = 'RaphasStore'
-admin.site.site_title = 'RaphasStore | Painel Administrativo'
-admin.site.index_title = 'Painel Administrativo'
+admin.site.site_header = "RaphasStore"
+admin.site.site_title = "RaphasStore | Painel Administrativo"
+admin.site.index_title = "Painel Administrativo"
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
-    path('api/product/', include('product.urls')),
+    path("admin/", admin.site.urls),
+    path("api-auth/", include("rest_framework.urls")),
+    path("api/product/", include("product.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 # JWTAuthentication
 urlpatterns += [
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_view'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh_view'),
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_view"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh_view"),
 ]
 
 
-#==========================[ DOCUMENTATION URLS ]======================================
+# ==========================[ DOCUMENTATION URLS ]========================
 
 # There is no possible to use more than one default schemas class same time in django, so we
 # have to choose CoreAPI or Spetacular/Swagger.
 
 # CoreAPI Documentantion and API interactions
 # IMPORTANT: To use CoreAPI documentation, place bellow at the end of settings.py:
-# REST_FRAMEWORK = {'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'} 
+# REST_FRAMEWORK = {'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'}
 urlpatterns += [
-    path('api/docs/', include_docs_urls(title='RaphasStoreAPI')),
-    path('api/schema', get_schema_view(
-            title="RaphasStore",
-            description="API for the RaphasStore",
-            version="1.0.0"
-        ), name='openapi-schema'),
+    path("api/docs/", include_docs_urls(title="RaphasStoreAPI")),
+    path(
+        "api/schema",
+        get_schema_view(
+            title="RaphasStore", description="API for the RaphasStore", version="1.0.0"
+        ),
+        name="openapi-schema",
+    ),
 ]
 
-#Spetacular and Swagger urls
+# Spetacular and Swagger urls
 # IMPORTANT: To use Swagger and Spetacular documentation, place bellow at the end of settings.py:
-# REST_FRAMEWORK = {'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'} 
+# REST_FRAMEWORK = {'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'}
 #
 # urlpatterns += [
 #     path('api/yaml_schema/', SpectacularAPIView.as_view(), name='schema'),
