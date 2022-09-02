@@ -1,3 +1,12 @@
+##### Table of Contents
+[Quick Start](#quick-start) 
+[About this Project](#about-this-project)
+[Proposed Solution](#proposed-solution)
+[Applyed Technologies](#applyed-technologies)
+[Solution Architecture](#solution-architecture)
+[Application Architecture](#application-architecture)
+[API Documentation](#api-documentation)
+
 
 ## Quick Start
 IMPORTANT: You must install Docker and Docker-Compose before running this project.
@@ -62,7 +71,7 @@ Frontend is just a simple web application that displays a list of products and h
   <img src="docs/app_images/app_preview.png" alt="RaphasStore Solution Preview" />
 </p>
 
-## Applyed technologies
+## Applyed Technologies
 Solution was implemented using the following technologies:
 
 • Python 3.10
