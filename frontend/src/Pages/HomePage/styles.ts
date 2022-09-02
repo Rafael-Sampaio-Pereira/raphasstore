@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
         text-align: center;
 
         img {
-            padding-top: 100px;
-            max-width:100% !important;
+            padding-top: 150px;
+            max-width:90% !important;
         }
     }
     

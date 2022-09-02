@@ -9,3 +9,5 @@ generic = {
 creation = {
     "react_ts_project": "yarn create react-app projectname --template typescript "
 }
+
+"test": "react-scripts test"

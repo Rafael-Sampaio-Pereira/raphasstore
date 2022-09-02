@@ -8,7 +8,7 @@ import DefaultShirt from '../../assets/images/default_shirt.png'
 import { CartItemType } from '../../Resources/Types';
 
 // Styles
-import { Wrapper } from "./Item.styles";
+import { Wrapper } from "./styles";
 
 type Props = {
     item: CartItemType;

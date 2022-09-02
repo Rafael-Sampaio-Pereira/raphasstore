@@ -20,9 +20,9 @@ import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg'
 
-import HomePage from '../../Pages/HomePage/HomePage';
+import HomePage from '../../Pages/HomePage';
 // import ContactPages from '../../Pages/ContactsPage/ContactsPage';
-import AboutPage from '../../Pages/AboutPage/AboutPage';
+import AboutPage from '../../Pages/AboutPage';
 
 // styles
 const useStyles = makeStyles((theme) => ({

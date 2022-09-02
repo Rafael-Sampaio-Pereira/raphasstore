@@ -4,7 +4,7 @@ import { Button } from "@material-ui/core";
 import { CartItemType } from '../../Resources/Types';
 
 // Styles
-import { Wrapper } from "./CartItem.styles";
+import { Wrapper } from "./styles";
 
 // Images
 import DefaultShirt from '../../assets/images/default_shirt.png'

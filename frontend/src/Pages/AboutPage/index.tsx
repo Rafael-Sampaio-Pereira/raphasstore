@@ -16,7 +16,7 @@ import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import ListSubheader from '@mui/material/ListSubheader';
 
-import { Wrapper } from './AboutPage.styles';
+import { Wrapper } from './styles';
 
 const AboutPage = () => {
 

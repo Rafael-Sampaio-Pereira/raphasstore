@@ -1,0 +1,64 @@
+{
+  "scripts": [
+    "start : eslint src --ext .ts,.tsx"
+  ],
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:@type-eslint/recommended",
+    "prettier/@type-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@type-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "@type-eslint", "prettier"],
+  "rules": {
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "react/jsx-one-expression-per-line": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".tsx"]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never"
+      }
+    ],
+    "no-use-before-define": "off",
+    "@type-eslint/no-explicit-any": "off",
+    "react/jsx-indent": "off",
+    "@type-eslint/explicit-module-boundary-types": "off",
+    "no-console": "off",
+    "no-nested-ternary": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "react/prop-types": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "type": {}
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
+}

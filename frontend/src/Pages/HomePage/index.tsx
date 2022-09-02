@@ -1,19 +1,19 @@
 import { useState } from 'react'
-import {useQuery } from 'react-query'
+import {useQuery, QueryClient, QueryClientProvider } from 'react-query'
 
 // Components
-import Item from '../../Components/Item/Item';
-import Cart from '../../Components/Cart/Cart';
+import Item from '../../Components/Item';
+import Cart from '../../Components/Cart';
 import { Drawer } from '@material-ui/core';
 import { LinearProgress } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { AddShoppingCart } from '@material-ui/icons';
 import Badge from '@material-ui/core/Badge';
 import Divider from '@mui/material/Divider';
-import Footer from '../../Components/Footer/Footer';
+import Footer from '../../Components/Footer';
 
 // Styles
-import { Wrapper, StyledButton } from './HomePage.styles';
+import { Wrapper, StyledButton } from './styles';
 
 // Services
 // import api from '../../Services/fakestoreapi';
@@ -33,7 +33,9 @@ const getProducts = async (): Promise<CartItemType[]> =>
           return response.data
       });
 
-const HomePage = () => {
+const queryClient = new QueryClient()
+
+const HomePage: React.FC = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([] as CartItemType[]);
   const { data, isLoading, error } = useQuery<CartItemType[]>(
@@ -75,40 +77,42 @@ const HomePage = () => {
   if (error) return <div>Ops, houve um erro inesperado ...</div>
 
   return (
-    <Wrapper>
-      <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
-        <Cart 
-          cartItems={cartItems}
-          addToCart={handleAddToCart}
-          removeFromCart={handleRemoveFromCart}
-        />
-      </Drawer>
-      <StyledButton color='secondary' size='medium' onClick={() => setCartOpen(true)}>
-        <Badge overlap='rectangular' badgeContent={getTotalItems(cartItems)} color='error'>
-          <AddShoppingCart fontSize='large' />
-        </Badge>
-      </StyledButton>
-      <Grid container spacing={3}>
-          <Grid className='header-banner' item key='header_banner' xl={12} lg={12} md={12} sm={12} xs={12}>
-            <img src={HeaderBanner} alt='RaphasStore. Sua camiseta Sport está aqui!' />
+    <QueryClientProvider client={queryClient} contextSharing={true}>
+      <Wrapper>
+        <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
+          <Cart 
+            cartItems={cartItems}
+            addToCart={handleAddToCart}
+            removeFromCart={handleRemoveFromCart}
+          />
+        </Drawer>
+        <StyledButton data-testid='show-cart-button' color='secondary' size='medium' onClick={() => setCartOpen(true)}>
+          <Badge overlap='rectangular' badgeContent={getTotalItems(cartItems)} color='error'>
+            <AddShoppingCart fontSize='large' />
+          </Badge>
+        </StyledButton>
+        <Grid container spacing={3}>
+            <Grid item className='header-banner' data-testid='header-banner' key='header_banner' xl={12} lg={12} md={12} sm={12} xs={12}>
+              <img src={HeaderBanner} alt='RaphasStore. Sua camiseta Sport está aqui!' />
+            </Grid>
+            <Grid item key='serach_area' xl={12} lg={12} md={12} sm={12} xs={12}>
+              <Divider />
+            </Grid>
+          {data?.map(item => (
+            <Grid item key={item.id} xl={2} lg={2} md={4} sm={6} xs={12}>
+              <Item item={item} data-testid={`product-${item.id}`} handleAddToCart={handleAddToCart}/>
+            </Grid>
+          ))}
+          <Grid item className='bottom-banner' data-testid="bottom-banner" key='bottom_banner' xl={12} lg={12} md={12} sm={12} xs={12}>
+              <img src={BottomBanner} alt='RaphasStore. Sua camiseta Sport está aqui!' />
           </Grid>
           <Grid item key='serach_area' xl={12} lg={12} md={12} sm={12} xs={12}>
-            <Divider />
+              <Divider />
           </Grid>
-        {data?.map(item => (
-          <Grid item key={item.id} xl={2} lg={2} md={4} sm={6} xs={12}>
-            <Item item={item} handleAddToCart={handleAddToCart}/>
-          </Grid>
-        ))}
-        <Grid className='bottom-banner' item key='bottom_banner' xl={12} lg={12} md={12} sm={12} xs={12}>
-            <img src={BottomBanner} alt='RaphasStore. Sua camiseta Sport está aqui!' />
+          <Footer />
         </Grid>
-        <Grid item key='serach_area' xl={12} lg={12} md={12} sm={12} xs={12}>
-            <Divider />
-        </Grid>
-        <Footer />
-      </Grid>
-    </Wrapper>
+      </Wrapper>
+    </QueryClientProvider>
   );
 }
 
