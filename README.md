@@ -1,11 +1,11 @@
 ##### Table of Contents
-[Quick Start](#quick-start) 
-[About this Project](#about-this-project)
-[Proposed Solution](#proposed-solution)
-[Applyed Technologies](#applyed-technologies)
-[Solution Architecture](#solution-architecture)
-[Application Architecture](#application-architecture)
-[API Documentation](#api-documentation)
+[Quick Start](#quick-start)<br/>
+[About this Project](#about-this-project)<br/>
+[Proposed Solution](#proposed-solution)<br/>
+[Applyed Technologies](#applyed-technologies)<br/>
+[Solution Architecture](#solution-architecture)<br/>
+[Application Architecture](#application-architecture)<br/>
+[API Documentation](#api-documentation)<br/>
 
 
 ## Quick Start
