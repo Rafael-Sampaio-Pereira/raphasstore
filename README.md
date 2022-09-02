@@ -19,21 +19,21 @@ default django user:
 <i>password: admin</i>
 
 URLs
-App Home page: http://127.0.0.1:8001
-Django Admin Panel: http://127.0.0.1:8001/admin/
-API Documentation: http://127.0.0.1:8001/api/docs/
+App Home page: http://127.0.0.1:8001<br/>
+Django Admin Panel: http://127.0.0.1:8001/admin/<br/>
+API Documentation: http://127.0.0.1:8001/api/docs/<br/>
 <b><span style="color: #E65100;">You can use the API documentation to test endipoints perfoming CRUDs requests.</span></b>
 
 ## About this Project
 This project is part of a challenge proposed by Dafiti company.
 
 ##### Challenge Specifications:
-• As a business requirement, choose a fashion-related resource. E.g. shoes, pants, shirts, etc…
-• Create a RESTful JSON API to expose CRUD (Create/Retrieve/Update/Delete) operations on this resource.
+• As a business requirement, choose a fashion-related resource. E.g. shoes, pants, shirts, etc…<br/>
+• Create a RESTful JSON API to expose CRUD (Create/Retrieve/Update/Delete) operations on this resource.<br/>
 • Create a frontend to the API. You are free to do that server-side, e.g. with Django Admin, or client side with a frontend framework of your
-choice.
+choice.<br/>
 • Provide a way for us to run your application locally with all of its’ requirements (python and infrastructure-wide). An alternative is to host
-it somewhere we can interact with the API and frontend. It would be great to document the steps required to that on the README. ;)
+it somewhere we can interact with the API and frontend. It would be great to document the steps required to that on the README. ;)<br/>
 • Optional requirement: Create an endpoint to populate data into the model/table using a CSV file. One of the fields of the model/table
 must have its’ value calculated based on 1 or more of the other ones.
 
