@@ -224,5 +224,3 @@ GRAPH_MODELS = {
     "all_applications": True,
     "group_models": True,
 }
-
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
